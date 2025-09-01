@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+// Fichier : src/App.js
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+
+// CORRECTION : Simplifiez les chemins d'importation. 
+// Webpack trouvera automatiquement les fichiers index.js à l'intérieur de ces dossiers.
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Checklist from './components/Checklist';
+import Ressources from './components/Ressources';
+import Forum from './components/Forum';
+import Footer from './components/Footer';
+import AgencesMap from './components/AgencesMap'; // Ajout pour la route agences
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/checklist" element={<Checklist />} />
+          <Route path="/ressources" element={<Ressources />} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/agences" element={<AgencesMap />} /> {/* Ajout de la route */}
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
