@@ -1,127 +1,284 @@
 /* Fichier : src/components/Forum.css */
 .forum-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 50px auto;
-  padding: 30px;
+  padding: 0 20px;
+}
+
+.forum-header {
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid #e0e0e0;
 }
 
 .forum-container h2 {
-  font-size: 32px;
+  font-size: 2.2rem;
   color: #333;
-  text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
-/* Nouveau style pour le message d'erreur */
+.forum-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Style pour le message d'erreur */
 .error-message {
   color: white;
-  background-color: #e53935;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ff5252, #f44336);
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
   text-align: center;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
 }
 
 /* Section des messages */
 .messages-section {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .message-card {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.message-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-color: #DAAC60;
 }
 
 .message-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .message-author {
-  font-weight: bold;
+  font-weight: 600;
   color: #DAAC60;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.message-author::before {
+  content: '👤';
+  font-size: 1rem;
 }
 
 .message-timestamp {
-  font-size: 12px;
+  font-size: 0.9rem;
   color: #888;
+  background-color: #f8f9fa;
+  padding: 4px 12px;
+  border-radius: 12px;
 }
 
 .message-text {
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
   color: #444;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
-/* Nouveaux styles pour les actions (like/dislike) */
+/* Styles pour les actions (like/dislike) */
 .message-actions {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 12px;
+  justify-content: flex-start;
 }
 
 .like-btn,
 .dislike-btn {
-  background: none;
-  border: 1px solid #ccc;
-  padding: 8px 12px;
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  padding: 8px 16px;
   border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 16px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .like-btn:hover {
   background-color: #e8f5e9;
   border-color: #4caf50;
+  color: #2e7d32;
+  transform: translateY(-1px);
 }
 
 .dislike-btn:hover {
   background-color: #ffebee;
   border-color: #f44336;
+  color: #c62828;
+  transform: translateY(-1px);
 }
 
-/* Formulaire de message */
+.like-btn.liked {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+  color: #2e7d32;
+}
+
+/* Section formulaire de message */
+.message-form-section {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.form-title {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
 .message-form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .author-input,
 .message-input {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-size: 16px;
+  padding: 15px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.author-input:focus,
+.message-input:focus {
+  outline: none;
+  border-color: #DAAC60;
+  box-shadow: 0 0 0 3px rgba(218, 172, 96, 0.1);
 }
 
 .message-input {
   resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
 }
 
 .post-btn {
-  background-color: #DAAC60;
+  background: linear-gradient(135deg, #DAAC60, #f4d03f);
   color: white;
   border: none;
-  padding: 12px 20px;
-  font-size: 18px;
-  font-weight: bold;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
   border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(218, 172, 96, 0.3);
 }
 
 .post-btn:hover {
-  background-color: #b1873e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(218, 172, 96, 0.4);
+  background: linear-gradient(135deg, #c49c54, #e6c13a);
+}
+
+.post-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Message vide */
+.empty-forum {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.empty-forum h3 {
+  color: #666;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.empty-forum p {
+  color: #888;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .forum-container {
+    margin: 30px 15px;
+    padding: 0;
+  }
+
+  .forum-header {
+    padding: 25px 20px;
+  }
+
+  .forum-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .message-card {
+    padding: 20px;
+  }
+
+  .message-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .message-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .like-btn,
+  .dislike-btn {
+    flex: 1;
+    justify-content: center;
+    min-width: 80px;
+  }
+
+  .message-form-section {
+    padding: 25px 20px;
+  }
+
+  .author-input,
+  .message-input {
+    padding: 12px 15px;
+  }
 }

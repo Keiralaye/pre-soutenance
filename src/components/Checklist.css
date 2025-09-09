@@ -1,40 +1,83 @@
 /* Fichier : src/components/Checklist.css */
 .checklist-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 50px auto;
-  padding: 30px;
+  padding: 40px;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
+  border: 1px solid #e0e0e0;
 }
 
 .checklist-container h1 {
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.checklist-subtitle {
+  color: #666;
+  margin-bottom: 35px;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 /* Styles pour la barre de progression */
+.progress-section {
+  margin: 35px 0;
+  text-align: center;
+}
+
 .progress-bar {
-  width: 80%;
-  height: 20px;
-  background-color: #e0e0e0;
-  border-radius: 10px;
+  width: 100%;
+  height: 25px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
   margin: 20px auto;
   overflow: hidden;
+  border: 2px solid #e0e0e0;
+  position: relative;
 }
 
 .progress-fill {
-  width: 30%; /* Pour l'exemple, 30% des 3 documents sur 10 */
   height: 100%;
-  background-color: #DAAC60; /* La couleur dorée de ta maquette */
-  border-radius: 10px;
-  transition: width 0.5s ease;
+  background: linear-gradient(90deg, #DAAC60, #f4d03f);
+  border-radius: 12px;
+  transition: width 0.6s ease-in-out;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(218, 172, 96, 0.3);
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .progress-text {
-  font-size: 18px;
-  color: #555;
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.progress-percentage {
+  font-size: 1rem;
+  color: #DAAC60;
+  font-weight: 500;
+  margin-top: 5px;
 }
 
 /* Styles pour la liste des documents */
@@ -48,15 +91,122 @@
 .document-list li {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-  font-size: 18px;
+  margin-bottom: 18px;
+  font-size: 1.1rem;
   color: #444;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 18px 20px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.document-list li:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.document-list li.completed {
+  background-color: #f0f8f0;
+  border-color: #DAAC60;
+  box-shadow: 0 3px 8px rgba(218, 172, 96, 0.2);
 }
 
 .document-list input[type="checkbox"] {
-  margin-right: 15px;
-  width: 20px;
-  height: 20px;
+  margin-right: 20px;
+  width: 24px;
+  height: 24px;
+  accent-color: #DAAC60;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.document-list label {
+  flex-grow: 1;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.document-list li.completed label {
+  color: #2e7d32;
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+/* Style pour la section de conseils */
+.tips-section {
+  margin-top: 40px;
+  padding: 25px;
+  background: linear-gradient(135deg, #fff3e0, #f9f9f9);
+  border-radius: 12px;
+  border-left: 5px solid #DAAC60;
+}
+
+.tips-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tips-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tips-section li {
+  margin-bottom: 10px;
+  padding: 8px 0;
+  color: #555;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 25px;
+}
+
+.tips-section li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #DAAC60;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .checklist-container {
+    margin: 30px 15px;
+    padding: 25px 20px;
+  }
+
+  .checklist-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .document-list li {
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .document-list input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+  }
+
+  .progress-text {
+    font-size: 1.1rem;
+  }
+
+  .tips-section {
+    padding: 20px;
+    margin: 30px 0;
+  }
 }

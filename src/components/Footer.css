@@ -1,45 +1,200 @@
 /* Fichier : src/components/Footer.css */
 
 .footer-container {
-  background-color: #333; /* Fond sombre */
+  background: linear-gradient(135deg, #2c3e50, #34495e);
   color: white;
-  padding: 20px 0;
+  padding: 40px 0 20px;
   text-align: center;
-  font-size: 14px;
-  margin-top: 50px; /* Espace le pied de page du contenu */
+  margin-top: 60px;
+  position: relative;
+}
+
+.footer-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #DAAC60, #f4d03f, #DAAC60);
 }
 
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 0 20px;
-  flex-wrap: wrap; /* Permet le retour à la ligne sur petits écrans */
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.footer-section h3 {
+  color: #DAAC60;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-section p,
+.footer-section li {
+  color: #bdc3c7;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links a {
-  color: white;
+  color: #bdc3c7;
   text-decoration: none;
-  margin-left: 20px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 5px 0;
+  border-bottom: 1px solid transparent;
 }
 
 .footer-links a:hover {
-  color: #DAAC60; /* Couleur dorée au survol */
+  color: #DAAC60;
+  border-bottom-color: #DAAC60;
+  transform: translateX(5px);
 }
 
-/* Pour les petits écrans */
+.social-links {
+  display: flex;
+  gap: 12px; /* Réduit légèrement l'espace entre les icônes */
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; /* Réduit de 40px à 32px */
+  height: 32px; /* Réduit de 40px à 32px */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 6px; /* Ajoute un petit padding pour centrer l'icône */
+}
+
+.social-link:hover {
+  background-color: #DAAC60;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(218, 172, 96, 0.4);
+}
+
+/* Styles spécifiques pour les images d'icônes */
+.social-icon {
+  width: 16px; /* Taille très petite mais reconnaissable */
+  height: 16px;
+  filter: brightness(0) invert(1); /* Rend les icônes blanches */
+  transition: all 0.3s ease;
+}
+
+/* Effet au survol sur les icônes */
+.social-link:hover .social-icon {
+  filter: brightness(0) invert(1);
+  transform: scale(1.1); /* Légère augmentation au survol */
+}
+
+.footer-bottom {
+  border-top: 1px solid #34495e;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-copyright {
+  color: #95a5a6;
+  font-size: 0.9rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal a {
+  color: #95a5a6;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: #DAAC60;
+}
+
+.footer-brand {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #DAAC60;
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  color: #bdc3c7;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .footer-content {
+  .footer-container {
+    padding: 30px 0 15px;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-bottom {
     flex-direction: column;
-    gap: 10px;
+    text-align: center;
+    gap: 15px;
   }
-  .footer-links {
-    margin-top: 10px;
+
+  .footer-legal {
+    justify-content: center;
   }
-  .footer-links a {
-    margin: 0 10px;
+
+  .social-links {
+    justify-content: center;
+  }
+  
+  /* Sur mobile, on peut légèrement agrandir les icônes pour une meilleure accessibilité */
+  .social-link {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .social-icon {
+    width: 18px;
+    height: 18px;
   }
 }

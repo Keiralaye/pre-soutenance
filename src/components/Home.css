@@ -2,12 +2,12 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #f5f5f5;
+  background-color: #f0f2f5;
   overflow-x: hidden;
 }
 
 .home-container {
-  padding-top: 70px; /* Espace pour la barre de navigation fixe */
+  padding-top: 50px; /* Réduit de 70px à 50px pour moins d'espace avec le header */
 }
 
 /* Styles pour la section d'alerte et de recherche */
@@ -16,17 +16,18 @@ body, html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  padding: 10px 20px;
+  gap: 10px; /* Réduit de 15px à 10px */
+  padding: 5px 15px; /* Réduit le padding vertical et horizontal */
+  background-color: #f0f2f5;
 }
 
 .alerts-section {
   width: 100%;
-  max-width: 700px;
+  max-width: 1200px; /* Augmenté de 900px à 1200px pour prendre plus de largeur */
   background-color: #fff;
-  border-radius: 20px;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 12px 25px; /* Réduit le padding vertical */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   animation: fadeIn 1s ease-in-out;
 }
@@ -34,24 +35,25 @@ body, html {
 .alert-text {
   margin: 0;
   color: #DAAC60;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .search-bar-home {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 700px;
-  border: 1px solid #DAAC60;
-  border-radius: 25px;
-  padding: 8px 20px;
+  max-width: 1200px; /* Augmenté pour prendre plus de largeur */
+  border: 2px solid #DAAC60;
+  border-radius: 30px;
+  padding: 12px 25px;
   background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .search-icon-home {
   color: #DAAC60;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .search-input-home {
@@ -59,203 +61,210 @@ body, html {
   border: none;
   outline: none;
   font-size: 16px;
-  padding: 5px 0;
+  padding: 8px 0;
+  color: #333;
 }
 
-/* Styles de la bannière principale (Hero Section) */
+.search-input-home::placeholder {
+  color: #888;
+}
+
+/* Styles de la bannière principale inspirée de la maquette */
 .hero-section {
-  background-image: url('./kaaba-bg.jpg'); /* Si l'image est dans src/components */
-  /* background-image: url('/kaaba-bg.jpg');  Si l'image est dans public */
+  background: linear-gradient(135deg, rgba(218, 172, 96, 0.7), rgba(0, 0, 0, 0.6)),
+              url('./kaaba-bg.jpg');
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 100px 20px;
+  padding: 60px 15px; /* Réduit de 80px à 60px le padding vertical */
   text-align: center;
-  min-height: 400px;
+  min-height: 350px; /* Réduit de 400px à 350px */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 30px; 
+  margin: 15px 0; /* Réduit de 30px à 15px */
 }
 
-/* Voile sombre pour la lisibilité */
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1;
+.search-bar-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 25px auto; /* Réduit de 30px à 25px */
+  background: rgba(255,255,255,0.18);
+  border: 1.5px solid #DAAC60;
+  border-radius: 30px;
+  padding: 10px 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  backdrop-filter: blur(3px);
 }
 
-.hero-section > * {
-  position: relative;
-  z-index: 2;
+.search-icon-hero {
+  color: #DAAC60;
+  margin-right: 12px;
+  font-size: 1.5rem;
+}
+
+.search-input-hero {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 8px 0;
+  background: transparent;
+  color: #fff;
+}
+
+.search-input-hero::placeholder {
+  color: #f5e7c3;
+  opacity: 0.85;
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Styles des cartes */
+/* Styles des cartes inspirés de la maquette */
 .cards-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 40px 20px;
-  max-width: 1200px;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px; /* Réduit de 25px à 20px */
+  padding: 25px 15px; /* Réduit de 50px à 25px le padding vertical et de 20px à 15px horizontal */
+  max-width: 1200px; /* Augmenté de 900px à 1200px */
   margin: auto;
+  background-color: #f0f2f5;
 }
 
 .card {
   background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  text-align: left;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px; /* Réduit légèrement le padding vertical */
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #e0e0e0;
+  min-height: 200px; /* Réduit de 220px à 200px */
+  min-width: 0;
+  aspect-ratio: 1 / 1;
 }
 
-.full-width {
-  grid-column: span 2;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .card-title {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.5rem;
+  justify-content: center;
+  gap: 15px;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #333;
+  margin-bottom: 10px;
 }
 
 .card-icon {
   color: #DAAC60;
+  background-color: #fff3e0;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(218, 172, 96, 0.2);
 }
 
 .card-description {
-  color: #777;
-  margin: 10px 0 20px;
-  font-size: 1rem;
+  color: #666;
+  margin: 10px 0 18px;
+  font-size: 0.98rem;
+  line-height: 1.4;
 }
 
 .card-link {
   background-color: #DAAC60;
   color: white;
-  padding: 12px 20px;
-  border-radius: 25px;
+  padding: 10px 20px;
+  border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(218, 172, 96, 0.3);
+  font-size: 0.98rem;
 }
 
 .card-link:hover {
-  background-color: #CDBA7F;
+  background-color: #c49c54;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(218, 172, 96, 0.4);
 }
 
-/* Styles pour le formulaire de contact */
+/* Supprime la classe full-width pour que toutes les cartes aient la même taille */
+.full-width {
+  grid-column: auto !important;
+}
+
+/* Style pour le formulaire de contact pour qu'il prenne plus de largeur */
 .contact-form-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 40px;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px; /* Même largeur que les cartes */
+  margin: 20px auto; /* Réduit l'espace au-dessus */
+  padding: 0 15px; /* Même padding horizontal que les cartes */
 }
 
-.contact-form-container h2 {
-  font-size: 2rem;
-  text-align: center;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.contact-form-container p {
-  text-align: center;
-  color: #777;
-  margin-bottom: 30px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
-.form-group textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.form-button {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  background-color: #DAAC60;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.form-button:hover {
-  background-color: #CDBA7F;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive pour les petits écrans */
+/* Responsive : une colonne sur mobile */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
+  .home-container {
+    padding-top: 40px; /* Réduit encore plus sur mobile */
   }
-  .hero-subtitle {
-    font-size: 1rem;
+  
+  .top-section {
+    padding: 5px 10px;
   }
+  
+  .hero-section {
+    padding: 40px 10px; /* Réduit le padding sur mobile */
+    min-height: 300px; /* Réduit la hauteur minimale */
+    margin: 10px 0; /* Réduit les marges */
+  }
+  
   .cards-section {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 15px; /* Réduit de 18px à 15px */
+    padding: 20px 10px; /* Réduit le padding */
+    max-width: 98vw;
   }
-  .full-width {
-    grid-column: span 1;
+  
+  .card {
+    min-height: 160px; /* Réduit de 180px à 160px */
+    aspect-ratio: unset;
+    padding: 20px 15px; /* Réduit le padding */
+  }
+  
+  .contact-form-container {
+    padding: 0 10px;
+    margin: 15px auto;
+  }
+  
+  .alerts-section,
+  .search-bar-home {
+    max-width: 95vw; /* Prend presque toute la largeur sur mobile */
   }
 }

@@ -16,17 +16,17 @@ function Home() {
             Info : Annonce Officielle du SGAR - Dates Clés du Hajj 2025
           </p>
         </div>
-        <div className="search-bar-home">
-          <Search className="search-icon-home" />
-          <input
-            type="text"
-            className="search-input-home"
-            placeholder="Rechercher un document, une agence, une info..."
-          />
-        </div>
       </div>
 
       <div className="hero-section">
+        <div className="search-bar-hero">
+          <Search className="search-icon-hero" />
+          <input
+            type="text"
+            className="search-input-hero"
+            placeholder="Rechercher un document, une agence, une info..."
+          />
+        </div>
         <h1 className="hero-title">Votre Pèlerinage Sécurisé et Transparent</h1>
         <p className="hero-subtitle">HAJJ-GUI centralise les informations officielles</p>
       </div>
@@ -34,7 +34,7 @@ function Home() {
       <div className="cards-section">
         <div className="card">
           <div className="card-title">
-            <ClipboardList size={32} className="card-icon" />
+            <ClipboardList size={24} className="card-icon" />
             <h3>Liste de Documents à Fournir</h3>
           </div>
           <p className="card-description">Simplifiez vos démarches administratives.</p>
@@ -44,7 +44,7 @@ function Home() {
         </div>
         <div className="card">
           <div className="card-title">
-            <Book size={32} className="card-icon" />
+            <Book size={24} className="card-icon" />
             <h3>Les Ressources</h3>
           </div>
           <p className="card-description">
@@ -56,7 +56,7 @@ function Home() {
         </div>
         <div className="card full-width">
           <div className="card-title">
-            <MapPin size={32} className="card-icon" />
+            <MapPin size={24} className="card-icon" />
             <h3>Cartographie des Agences</h3>
           </div>
           <p className="card-description">
@@ -68,7 +68,7 @@ function Home() {
         </div>
         <div className="card full-width">
           <div className="card-title">
-            <MessageSquare size={32} className="card-icon" />
+            <MessageSquare size={24} className="card-icon" />
             <h3>Forum</h3>
           </div>
           <p className="card-description">

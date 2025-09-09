@@ -1,18 +1,13 @@
-// Fichier : src/App.js
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-
-// CORRECTION : Simplifiez les chemins d'importation. 
-// Webpack trouvera automatiquement les fichiers index.js à l'intérieur de ces dossiers.
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Checklist from './components/Checklist';
 import Ressources from './components/Ressources';
 import Forum from './components/Forum';
 import Footer from './components/Footer';
-import AgencesMap from './components/AgencesMap'; // Ajout pour la route agences
+import AgencesMap from './components/AgencesMap';
 
 function App() {
   return (
@@ -24,7 +19,7 @@ function App() {
           <Route path="/checklist" element={<Checklist />} />
           <Route path="/ressources" element={<Ressources />} />
           <Route path="/forum" element={<Forum />} />
-          <Route path="/agences" element={<AgencesMap />} /> {/* Ajout de la route */}
+          <Route path="/agences" element={<AgencesMap />} />
         </Routes>
         <Footer />
       </div>

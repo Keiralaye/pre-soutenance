@@ -13,7 +13,9 @@ function Navbar() {
   return (
     <nav className="navbar-container">
       <Link to="/" className="navbar-logo">
-        <img src="/hajj-gui-logo.png" alt="HAJJ-GUI Logo" className="logo-img" />
+        {/* Si vous avez un logo, décommentez cette ligne */}
+        {/* <img src="/hajj-gui-logo.png" alt="HAJJ-GUI Logo" className="logo-img" /> */}
+        <span className="logo-text">HAJJ-GUI</span>
       </Link>
       <div className={`nav-links ${isOpen ? 'active' : ''}`} role="menu">
         <Link to="/" className="navbar-link" onClick={handleLinkClick}>ACCUEIL</Link>

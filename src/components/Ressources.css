@@ -1,50 +1,70 @@
 /* Fichier : src/components/Ressources.css */
 
 .ressources-container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 50px auto;
-  padding: 30px;
+  padding: 40px 30px;
   text-align: center;
+  background-color: #f0f2f5;
+}
+
+.ressources-header {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 }
 
 .ressources-container h1 {
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 2.4rem;
+  font-weight: 600;
 }
 
 .ressources-intro {
-  font-size: 18px;
+  font-size: 1.2rem;
   color: #666;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
 /* Styles pour la section des filtres */
 .ressource-filters {
   margin-bottom: 30px;
   display: flex;
-  flex-wrap: wrap; /* Pour le responsive */
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .filter-btn {
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  padding: 10px 18px;
-  border-radius: 20px;
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+  padding: 12px 24px;
+  border-radius: 25px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .filter-btn:hover {
-  background-color: #e0e0e0;
+  background-color: #f8f9fa;
+  border-color: #DAAC60;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(218, 172, 96, 0.2);
 }
 
 .filter-btn.active {
-  background-color: #DAAC60; /* Couleur dorée pour le filtre actif */
+  background-color: #DAAC60;
   color: white;
   border-color: #DAAC60;
+  box-shadow: 0 4px 15px rgba(218, 172, 96, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Styles pour la barre de recherche */
@@ -53,109 +73,196 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 600px; /* Limite la largeur de la barre de recherche */
-  margin: 20px auto 40px auto; /* Centre la barre de recherche */
-  border: 1px solid #ddd;
-  border-radius: 25px;
-  padding: 8px 15px;
+  max-width: 600px;
+  margin: 25px auto 40px auto;
+  border: 2px solid #DAAC60;
+  border-radius: 30px;
+  padding: 12px 20px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(218, 172, 96, 0.1);
 }
 
 .search-icon {
-  color: #777;
-  margin-right: 10px;
+  color: #DAAC60;
+  margin-right: 15px;
 }
 
 .search-input {
-  flex-grow: 1; /* Prend l'espace disponible */
+  flex-grow: 1;
   border: none;
-  outline: none; /* Enlève le contour bleu au focus */
-  font-size: 16px;
-  padding: 5px 0;
-}
-
-.ressources-list {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-}
-
-.ressource-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  padding: 15px 25px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease-in-out;
-  flex-wrap: wrap; /* Important pour le responsive */
-}
-
-.ressource-item:hover {
-  transform: translateY(-3px);
-}
-
-.ressource-name {
-  font-weight: bold;
+  outline: none;
+  font-size: 1rem;
+  padding: 8px 0;
   color: #333;
 }
 
+.search-input::placeholder {
+  color: #888;
+}
+
+/* Styles pour la liste des ressources */
+.ressources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.ressource-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.ressource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ressource-header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.ressource-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #fff3e0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #DAAC60;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.ressource-type-badge {
+  background-color: #f0f0f0;
+  color: #666;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.ressource-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
 .ressource-category {
-  font-size: 14px;
-  color: #777;
-  margin-left: 5px;
+  font-size: 0.95rem;
+  color: #DAAC60;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.ressource-description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .download-link {
   background-color: #DAAC60;
   color: white;
   text-decoration: none;
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-  display: flex; /* Pour aligner le texte et le type */
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
-  margin-top: 5px; /* Pour le responsive */
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(218, 172, 96, 0.3);
 }
 
 .download-link:hover {
-  background-color: #b1873e;
+  background-color: #c49c54;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(218, 172, 96, 0.4);
 }
 
-.ressource-type {
-  font-size: 12px;
-  opacity: 0.8;
+.download-icon {
+  font-size: 1rem;
+}
+
+/* Message quand aucune ressource n'est trouvée */
+.no-resources {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.no-resources-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #ddd;
 }
 
 /* Styles pour le responsive design */
 @media (max-width: 768px) {
-  .ressource-item {
-    flex-direction: column; /* Les éléments s'empilent verticalement */
-    align-items: flex-start; /* Aligne le texte à gauche */
+  .ressources-container {
+    margin: 30px 15px;
+    padding: 25px 20px;
   }
-  .download-link {
-    width: 100%; /* Le bouton de téléchargement prend toute la largeur */
-    justify-content: center;
-    margin-top: 10px;
+
+  .ressources-header {
+    padding: 25px 20px;
   }
+
+  .ressources-container h1 {
+    font-size: 2rem;
+  }
+
+  .ressources-intro {
+    font-size: 1rem;
+  }
+
+  .ressources-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ressource-card {
+    padding: 20px;
+  }
+
   .ressource-filters {
-    flex-direction: column; /* Les boutons de filtre s'empilent */
+    flex-direction: column;
     align-items: center;
   }
+
   .filter-btn {
-    width: 90%; /* Les boutons prennent plus de largeur */
+    width: 90%;
+    text-align: center;
   }
+
   .search-bar-container {
-    max-width: 90%; /* Prend plus de largeur sur mobile */
-    padding: 6px 10px;
+    max-width: 95%;
+    padding: 10px 15px;
   }
+
   .search-input {
-    font-size: 14px;
+    font-size: 0.95rem;
+  }
+
+  .ressource-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
