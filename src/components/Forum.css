@@ -1,4 +1,4 @@
-/* Fichier : src/components/Forum.css */
+/* STYLES DE BASE DU FORUM */
 .forum-container {
   max-width: 900px;
   margin: 50px auto;
@@ -29,7 +29,7 @@
   line-height: 1.6;
 }
 
-/* Style pour le message d'erreur */
+/* STYLES POUR LES MESSAGES D'ERREUR */
 .error-message {
   color: white;
   background: linear-gradient(135deg, #ff5252, #f44336);
@@ -39,9 +39,33 @@
   text-align: center;
   font-weight: 500;
   box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+  animation: shake 0.5s ease-in-out;
 }
 
-/* Section des messages */
+/* ANIMATION POUR LES ERREURS */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* STYLES POUR LA SECTION ADMINISTRATEUR */
+.admin-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 2px solid #DAAC60;
+  box-shadow: 0 4px 12px rgba(218, 172, 96, 0.1);
+}
+
+.admin-section h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* STYLES POUR LES MESSAGES */
 .messages-section {
   margin-bottom: 30px;
 }
@@ -54,6 +78,14 @@
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+  position: relative;
+}
+
+/* STYLE SPÉCIAL POUR LES MESSAGES ADMIN */
+.message-card.admin-message {
+  background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+  border-left: 5px solid #28a745;
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.15);
 }
 
 .message-card:hover {
@@ -62,6 +94,7 @@
   border-color: #DAAC60;
 }
 
+/* EN-TÊTE DES MESSAGES */
 .message-header {
   display: flex;
   justify-content: space-between;
@@ -77,12 +110,13 @@
   font-size: 1.1rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
 }
 
-.message-author::before {
-  content: '👤';
-  font-size: 1rem;
+/* STYLE SPÉCIAL POUR LES AUTEURS ADMIN */
+.message-author.admin-author {
+  color: #28a745;
+  font-weight: 700;
 }
 
 .message-timestamp {
@@ -101,11 +135,13 @@
   text-align: left;
 }
 
-/* Styles pour les actions (like/dislike) */
+/* ACTIONS SUR LES MESSAGES - Likes/Dislikes/Réponses */
 .message-actions {
   display: flex;
   gap: 12px;
   justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .like-btn,
@@ -121,8 +157,11 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  min-width: 60px;
+  justify-content: center;
 }
 
+/* ÉTATS ACTIFS DES BOUTONS LIKE/DISLIKE */
 .like-btn:hover {
   background-color: #e8f5e9;
   border-color: #4caf50;
@@ -141,9 +180,178 @@
   background-color: #e8f5e9;
   border-color: #4caf50;
   color: #2e7d32;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
 }
 
-/* Section formulaire de message */
+.dislike-btn.disliked {
+  background-color: #ffebee;
+  border-color: #f44336;
+  color: #c62828;
+  box-shadow: 0 2px 8px rgba(244, 67, 54, 0.2);
+}
+
+/* BOUTON DE RÉPONSE ADMIN */
+.admin-reply-btn {
+  background: linear-gradient(135deg, #DAAC60, #f4d03f);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(218, 172, 96, 0.3);
+}
+
+.admin-reply-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(218, 172, 96, 0.4);
+}
+
+/* FORMULAIRE DE RÉPONSE ADMIN */
+.admin-response-form {
+  margin-top: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+  border-radius: 10px;
+  border: 2px solid #DAAC60;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-response-form h4 {
+  margin: 0 0 10px 0;
+  color: #DAAC60;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.admin-response-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+.admin-response-form textarea:focus {
+  outline: none;
+  border-color: #DAAC60;
+  box-shadow: 0 0 0 2px rgba(218, 172, 96, 0.2);
+}
+
+/* BOUTONS DU FORMULAIRE ADMIN */
+.admin-form-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-submit-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.admin-submit-btn:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+.admin-cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.admin-cancel-btn:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+/* AFFICHAGE DES RÉPONSES ADMIN */
+.admin-response {
+  margin-top: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #e8f5e9, #f1f8f2);
+  border-radius: 10px;
+  border-left: 4px solid #28a745;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.admin-response-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.admin-response-author {
+  font-weight: 600;
+  color: #28a745;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+}
+
+.admin-response-badge {
+  font-size: 12px;
+  background-color: #28a745;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+}
+
+.admin-response-timestamp {
+  font-size: 12px;
+  color: #666;
+}
+
+.admin-response-text {
+  margin: 0;
+  color: #333;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* SECTION FORMULAIRE DE MESSAGE */
 .message-form-section {
   background-color: #fff;
   border-radius: 15px;
@@ -200,6 +408,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(218, 172, 96, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .post-btn:hover {
@@ -215,7 +427,7 @@
   box-shadow: none;
 }
 
-/* Message vide */
+/* MESSAGE FORUM VIDE */
 .empty-forum {
   text-align: center;
   padding: 60px 20px;
@@ -236,7 +448,7 @@
   font-size: 1rem;
 }
 
-/* Responsive */
+/* RESPONSIVE DESIGN - Adaptations mobiles */
 @media (max-width: 768px) {
   .forum-container {
     margin: 30px 15px;
@@ -280,5 +492,55 @@
   .author-input,
   .message-input {
     padding: 12px 15px;
+  }
+
+  /* FORMULAIRE ADMIN MOBILE */
+  .admin-response-form {
+    padding: 12px;
+  }
+
+  .admin-form-buttons {
+    flex-direction: column;
+  }
+
+  .admin-submit-btn,
+  .admin-cancel-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* SECTION ADMIN MOBILE */
+  .admin-section {
+    padding: 15px;
+  }
+
+  .admin-section h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* STYLES POUR TRÈS PETITS ÉCRANS */
+@media (max-width: 480px) {
+  .message-card {
+    padding: 15px;
+  }
+
+  .message-text {
+    font-size: 0.95rem;
+  }
+
+  .message-author {
+    font-size: 1rem;
+  }
+
+  .like-btn,
+  .dislike-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .post-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
   }
 }

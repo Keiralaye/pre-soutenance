@@ -1,3 +1,4 @@
+/* STYLES DE BASE - Configuration générale de la page */
 body, html {
   margin: 0;
   padding: 0;
@@ -7,43 +8,55 @@ body, html {
 }
 
 .home-container {
-  padding-top: 50px; /* Réduit de 70px à 50px pour moins d'espace avec le header */
+  /* RÉDUCTION DE L'ESPACE AVEC LE HEADER - Passé de 50px à 25px */
+  padding-top: 25px; 
 }
 
-/* Styles pour la section d'alerte et de recherche */
+/* SECTION SUPÉRIEURE - Alerte et barre de recherche */
 .top-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* Réduit de 15px à 10px */
-  padding: 5px 15px; /* Réduit le padding vertical et horizontal */
+  gap: 8px; /* Espacement réduit entre les éléments */
+  padding: 8px 15px; /* Padding réduit pour moins d'espacement */
   background-color: #f0f2f5;
 }
 
+/* SECTION D'ALERTE DYNAMIQUE - Bien visible et identifiable */
 .alerts-section {
   width: 100%;
-  max-width: 1200px; /* Augmenté de 900px à 1200px pour prendre plus de largeur */
-  background-color: #fff;
+  max-width: 1200px;
+  /* Couleur de fond plus marquée pour la visibilité */
+  background: linear-gradient(135deg, #fff3e0, #fff);
+  border: 2px solid #DAAC60; /* Bordure colorée pour l'identification */
   border-radius: 12px;
-  padding: 12px 25px; /* Réduit le padding vertical */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px 25px; /* Padding adapté pour la visibilité */
+  box-shadow: 0 4px 12px rgba(218, 172, 96, 0.2); /* Ombre plus marquée */
   text-align: center;
-  animation: fadeIn 1s ease-in-out;
+  animation: pulse 2s infinite; /* Animation pour attirer l'attention */
+}
+
+/* Animation pour rendre l'alerte plus visible */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }
 
 .alert-text {
   margin: 0;
   color: #DAAC60;
-  font-weight: 600;
+  font-weight: 700; /* Police plus grasse pour la visibilité */
   font-size: 16px;
 }
 
+/* BARRE DE RECHERCHE - Style cohérent */
 .search-bar-home {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 1200px; /* Augmenté pour prendre plus de largeur */
+  max-width: 1200px;
   border: 2px solid #DAAC60;
   border-radius: 30px;
   padding: 12px 25px;
@@ -69,31 +82,35 @@ body, html {
   color: #888;
 }
 
-/* Styles de la bannière principale inspirée de la maquette */
+/* SECTION HERO - Bannière principale avec espacement réduit */
 .hero-section {
   background: linear-gradient(135deg, rgba(218, 172, 96, 0.7), rgba(0, 0, 0, 0.6)),
               url('./kaaba-bg.jpg');
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 60px 15px; /* Réduit de 80px à 60px le padding vertical */
+  /* RÉDUCTION DE L'ESPACE - Padding réduit de 60px à 40px */
+  padding: 40px 15px;
   text-align: center;
-  min-height: 350px; /* Réduit de 400px à 350px */
+  /* RÉDUCTION DE LA HAUTEUR - Hauteur minimale réduite */
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: 15px 0; /* Réduit de 30px à 15px */
+  /* RÉDUCTION DES MARGES - Marges réduites */
+  margin: 8px 0;
 }
 
+/* Barre de recherche dans le hero */
 .search-bar-hero {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   max-width: 500px;
-  margin: 0 auto 25px auto; /* Réduit de 30px à 25px */
+  margin: 0 auto 20px auto; /* Marge réduite */
   background: rgba(255,255,255,0.18);
   border: 1.5px solid #DAAC60;
   border-radius: 30px;
@@ -123,36 +140,41 @@ body, html {
   opacity: 0.85;
 }
 
+/* Titres du hero */
 .hero-title {
-  font-size: 2.8rem;
+  font-size: 2.5rem; /* Taille réduite pour moins d'espace */
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 12px; /* Marge réduite */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem; /* Taille légèrement réduite */
   font-weight: 400;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Styles des cartes inspirés de la maquette */
+/* SECTION DES CARTES - Fonctionnalités principales réduites */
 .cards-section {
   display: grid;
+  /* GRILLE 2x2 MAINTENUE pour l'équilibre visuel */
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 20px; /* Réduit de 25px à 20px */
-  padding: 25px 15px; /* Réduit de 50px à 25px le padding vertical et de 20px à 15px horizontal */
-  max-width: 1200px; /* Augmenté de 900px à 1200px */
+  gap: 15px; /* Gap réduit pour moins d'espacement */
+  /* PADDING RÉDUIT pour moins d'espace global */
+  padding: 20px 15px;
+  max-width: 1000px; /* Largeur maximale réduite */
   margin: auto;
   background-color: #f0f2f5;
 }
 
+/* CARTES RÉDUITES - Taille optimisée */
 .card {
   background-color: #fff;
-  border-radius: 18px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  padding: 25px 20px; /* Réduit légèrement le padding vertical */
+  border-radius: 15px; /* Bordures arrondies maintenues */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombre légèrement réduite */
+  /* PADDING RÉDUIT - Moins d'espace interne */
+  padding: 18px 15px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -160,111 +182,132 @@ body, html {
   align-items: center;
   transition: transform 0.3s, box-shadow 0.3s;
   border: 1px solid #e0e0e0;
-  min-height: 200px; /* Réduit de 220px à 200px */
+  /* HAUTEUR RÉDUITE - Cartes plus compactes */
+  min-height: 160px;
   min-width: 0;
-  aspect-ratio: 1 / 1;
+  /* RATIO MAINTENU mais plus petit */
+  aspect-ratio: 1.2 / 1;
 }
 
+/* Effet hover maintenu pour l'interactivité */
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px); /* Effet réduit */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
+/* TITRE DES CARTES - Taille réduite */
 .card-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  font-size: 1.2rem;
+  gap: 10px; /* Gap réduit */
+  font-size: 1rem; /* Taille de police réduite */
   font-weight: 600;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 8px; /* Marge réduite */
 }
 
+/* ICÔNES DES CARTES - Taille ajustée */
 .card-icon {
   color: #DAAC60;
   background-color: #fff3e0;
-  padding: 10px;
+  padding: 8px; /* Padding réduit */
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(218, 172, 96, 0.2);
+  box-shadow: 0 2px 6px rgba(218, 172, 96, 0.2);
 }
 
+/* DESCRIPTION DES CARTES - Texte plus compact */
 .card-description {
   color: #666;
-  margin: 10px 0 18px;
-  font-size: 0.98rem;
-  line-height: 1.4;
+  margin: 8px 0 12px; /* Marges réduites */
+  font-size: 0.9rem; /* Taille de police réduite */
+  line-height: 1.3; /* Interligne réduit */
 }
 
+/* LIENS DES CARTES - Boutons plus compacts */
 .card-link {
   background-color: #DAAC60;
   color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
+  padding: 8px 16px; /* Padding réduit */
+  border-radius: 18px; /* Bordures plus arrondies */
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600; /* Police légèrement moins grasse */
   text-align: center;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
   display: inline-block;
-  box-shadow: 0 4px 12px rgba(218, 172, 96, 0.3);
-  font-size: 0.98rem;
+  box-shadow: 0 3px 10px rgba(218, 172, 96, 0.3);
+  font-size: 0.9rem; /* Taille de police réduite */
 }
 
 .card-link:hover {
   background-color: #c49c54;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(218, 172, 96, 0.4);
+  transform: translateY(-1px); /* Effet réduit */
+  box-shadow: 0 5px 14px rgba(218, 172, 96, 0.4);
 }
 
-/* Supprime la classe full-width pour que toutes les cartes aient la même taille */
-.full-width {
-  grid-column: auto !important;
-}
-
-/* Style pour le formulaire de contact pour qu'il prenne plus de largeur */
+/* FORMULAIRE DE CONTACT - Largeur adaptée */
 .contact-form-container {
-  max-width: 1200px; /* Même largeur que les cartes */
-  margin: 20px auto; /* Réduit l'espace au-dessus */
-  padding: 0 15px; /* Même padding horizontal que les cartes */
+  max-width: 1000px; /* Largeur cohérente avec les cartes */
+  margin: 15px auto; /* Marge réduite */
+  padding: 0 15px;
 }
 
-/* Responsive : une colonne sur mobile */
+/* RESPONSIVE - Adaptation mobile optimisée */
 @media (max-width: 768px) {
   .home-container {
-    padding-top: 40px; /* Réduit encore plus sur mobile */
+    padding-top: 20px; /* Padding encore plus réduit sur mobile */
   }
   
   .top-section {
-    padding: 5px 10px;
+    padding: 5px 8px; /* Padding minimal sur mobile */
   }
   
   .hero-section {
-    padding: 40px 10px; /* Réduit le padding sur mobile */
-    min-height: 300px; /* Réduit la hauteur minimale */
-    margin: 10px 0; /* Réduit les marges */
+    padding: 30px 10px; /* Padding réduit sur mobile */
+    min-height: 240px; /* Hauteur réduite sur mobile */
+    margin: 5px 0; /* Marges minimales */
   }
   
+  .hero-title {
+    font-size: 2rem; /* Titre plus petit sur mobile */
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem; /* Sous-titre plus petit */
+  }
+  
+  /* GRILLE MOBILE - Une colonne */
   .cards-section {
     grid-template-columns: 1fr;
     grid-template-rows: none;
-    gap: 15px; /* Réduit de 18px à 15px */
-    padding: 20px 10px; /* Réduit le padding */
-    max-width: 98vw;
+    gap: 12px; /* Gap encore plus réduit sur mobile */
+    padding: 15px 8px; /* Padding minimal */
+    max-width: 95vw; /* Largeur maximale sur mobile */
   }
   
   .card {
-    min-height: 160px; /* Réduit de 180px à 160px */
+    min-height: 140px; /* Hauteur encore plus réduite sur mobile */
     aspect-ratio: unset;
-    padding: 20px 15px; /* Réduit le padding */
+    padding: 15px 12px; /* Padding réduit sur mobile */
+  }
+  
+  .card-title {
+    font-size: 0.95rem; /* Police encore plus petite sur mobile */
+    gap: 8px;
+  }
+  
+  .card-description {
+    font-size: 0.85rem; /* Description plus petite sur mobile */
   }
   
   .contact-form-container {
-    padding: 0 10px;
-    margin: 15px auto;
+    padding: 0 8px;
+    margin: 10px auto;
   }
   
   .alerts-section,
   .search-bar-home {
-    max-width: 95vw; /* Prend presque toute la largeur sur mobile */
+    max-width: 92vw; /* Largeur adaptée sur mobile */
+    padding: 12px 15px; /* Padding adapté */
   }
 }

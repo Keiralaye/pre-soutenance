@@ -11,9 +11,9 @@ function Checklist() {
     { id: 5, name: 'Certificat de vaccination (fievre jaune, meningite)', isCompleted: false },
     { id: 6, name: 'Attestation de residence', isCompleted: false },
     { id: 7, name: 'Certificat medical', isCompleted: false },
-    { id: 8, name: 'Copie du livret de famille (pour les femmes accompagnees)', isCompleted: false },
-    { id: 9, name: 'Autorisation de sortie du territoire (pour mineurs)', isCompleted: false },
-    { id: 10, name: 'Preuve de paiement des frais du Hajj', isCompleted: false },
+    { id: 8, name: 'Copie du livret de famille (pour les personnes accompagnees)', isCompleted: false },
+    // { id: 9, name: 'Autorisation de sortie du territoire (pour mineurs)', isCompleted: false },
+    // { id: 10, name: 'Preuve de paiement des frais du Hajj', isCompleted: false },
   ]);
 
   const [progressStats, setProgressStats] = useState({

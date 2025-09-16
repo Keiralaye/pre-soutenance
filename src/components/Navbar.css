@@ -1,9 +1,11 @@
+/* NAVBAR CONTAINER - Style principal avec couleurs harmonisées du footer */
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #000;
+  /* COULEUR HARMONISÉE - Utilise le même dégradé que le footer */
+  background: linear-gradient(135deg, #2c3e50, #34495e);
   color: white;
   position: fixed;
   top: 0;
@@ -11,9 +13,21 @@
   width: 100%;
   z-index: 1000;
   box-sizing: border-box;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Ombre plus marquée pour la profondeur */
 }
 
+/* LIGNE DÉCORATIVE - Ajoute la même ligne colorée que le footer */
+.navbar-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px; /* Ligne légèrement plus fine que celle du footer */
+  background: linear-gradient(90deg, #DAAC60, #f4d03f, #DAAC60);
+}
+
+/* LOGO - Style amélioré */
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -21,27 +35,46 @@
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
+  transition: transform 0.3s ease; /* Animation au survol */
 }
 
+/* EFFET AU SURVOL DU LOGO */
+.navbar-logo:hover {
+  transform: scale(1.05); /* Léger agrandissement au survol */
+}
+
+/* IMAGE DU LOGO */
 .logo-img {
   width: 45px;
   height: auto;
   margin-right: 12px;
   border-radius: 8px;
+  /* EFFET LUMINEUX - Bordure dorée subtile */
+  border: 2px solid rgba(218, 172, 96, 0.3);
+  transition: border-color 0.3s ease;
 }
 
+/* EFFET AU SURVOL DE L'IMAGE */
+.logo-img:hover {
+  border-color: #DAAC60; /* Bordure plus visible au survol */
+}
+
+/* TEXTE DU LOGO - Couleur signature */
 .logo-text {
   color: #DAAC60;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px; /* Espacement des lettres augmenté */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Ombre pour le relief */
 }
 
+/* LIENS DE NAVIGATION - Container */
 .nav-links {
   display: flex;
   gap: 30px;
   align-items: center;
 }
 
+/* LIENS INDIVIDUELS - Style amélioré avec harmonie des couleurs */
 .navbar-link {
   text-decoration: none;
   color: white;
@@ -53,14 +86,21 @@
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  /* FOND SUBTIL - Arrière-plan très léger pour la définition */
+  background: rgba(255, 255, 255, 0.05);
 }
 
+/* ÉTAT NORMAL AU SURVOL */
 .navbar-link:hover {
   color: #DAAC60;
-  background: rgba(218, 172, 96, 0.1);
-  transform: translateY(-2px);
+  /* FOND AU SURVOL - Couleur harmonisée avec transparence */
+  background: rgba(218, 172, 96, 0.15);
+  transform: translateY(-2px); /* Élévation au survol */
+  /* OMBRE AU SURVOL - Effet de profondeur */
+  box-shadow: 0 4px 8px rgba(218, 172, 96, 0.2);
 }
 
+/* LIGNE ANIMÉE SOUS LES LIENS */
 .navbar-link::after {
   content: '';
   position: absolute;
@@ -72,11 +112,13 @@
   transition: all 0.3s ease;
 }
 
+/* ANIMATION DE LA LIGNE AU SURVOL */
 .navbar-link:hover::after {
   width: 100%;
   left: 0;
 }
 
+/* BOUTON MENU MOBILE - Style harmonisé */
 .menu-toggle {
   display: none;
   cursor: pointer;
@@ -84,53 +126,112 @@
   background: none;
   border: none;
   color: white;
-  padding: 5px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  /* FOND SUBTIL - Même style que les liens */
+  background: rgba(255, 255, 255, 0.05);
 }
 
+/* EFFET AU SURVOL DU BOUTON MOBILE */
 .menu-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(218, 172, 96, 0.15); /* Couleur harmonisée */
+  color: #DAAC60;
+  transform: scale(1.1); /* Léger agrandissement */
 }
 
+/* RESPONSIVE DESIGN - Adaptations mobiles */
 @media (max-width: 768px) {
+  /* NAVBAR MOBILE - Padding réduit */
   .navbar-container {
     padding: 12px 20px;
   }
 
+  /* MENU MOBILE - Style du menu déroulant */
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 70px;
+    top: 70px; /* Positionnement sous la navbar */
     left: 0;
-    background-color: #000;
+    /* FOND MOBILE - Même dégradé que la navbar principale */
+    background: linear-gradient(135deg, #2c3e50, #34495e);
     padding: 25px 0;
     text-align: center;
     gap: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* OMBRE MOBILE - Ombre plus marquée pour le menu déroulant */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    /* BORDURE DÉCORATIVE MOBILE */
+    border-top: 3px solid #DAAC60;
   }
 
+  /* MENU ACTIF - Affichage du menu mobile */
   .nav-links.active {
     display: flex;
+    /* ANIMATION D'OUVERTURE */
+    animation: slideDown 0.3s ease-out;
   }
 
+  /* ANIMATION DE GLISSEMENT */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* LIENS MOBILES - Style adapté */
   .navbar-link {
-    padding: 12px 20px;
+    padding: 15px 20px; /* Padding augmenté pour mobile */
     width: 90%;
     margin: 0 auto;
+    /* FOND MOBILE - Plus marqué sur mobile pour la lisibilité */
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(218, 172, 96, 0.2); /* Bordure subtile */
   }
 
+  /* EFFET AU SURVOL SUR MOBILE */
+  .navbar-link:hover {
+    background: rgba(218, 172, 96, 0.2); /* Fond plus marqué sur mobile */
+    border-color: #DAAC60; /* Bordure plus visible */
+  }
+
+  /* AFFICHAGE DU BOUTON MOBILE */
   .menu-toggle {
     display: block;
   }
 
+  /* LOGO MOBILE - Taille adaptée */
   .logo-img {
-    width: 35px;
+    width: 35px; /* Taille réduite sur mobile */
   }
 
   .navbar-logo {
-    font-size: 1.3rem;
+    font-size: 1.3rem; /* Taille de police réduite */
+  }
+
+  .logo-text {
+    letter-spacing: 1px; /* Espacement réduit sur mobile */
+  }
+}
+
+/* AMÉLIORATION POUR TRÈS PETITS ÉCRANS */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 10px 15px; /* Padding encore plus réduit */
+  }
+
+  .logo-text {
+    font-size: 1.1rem; /* Police plus petite */
+  }
+
+  .navbar-link {
+    font-size: 0.9rem; /* Police des liens plus petite */
+    padding: 12px 15px;
   }
 }

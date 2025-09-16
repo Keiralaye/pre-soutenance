@@ -13,7 +13,7 @@ function Home() {
             <span role="img" aria-label="Info">
               &#x1F6A8;
             </span>{" "}
-            Info : Annonce Officielle du SGAR - Dates Clés du Hajj 2025
+            Info : Annonce Officielle du SGAR - Dates Clés du Hajj 2026
           </p>
         </div>
       </div>
